@@ -1,5 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 const Register = () => {
+    const navigate = useNavigate();
+    const handleForm = (e) => {
+        e.preventDefault();
+        navigate('/home')
+    }
     return (
         <>
             <style>
@@ -31,7 +38,7 @@ const Register = () => {
 
                     <div className="w-full max-w-sm border border-neutral-800 rounded-2xl p-8">
                         <h2 className="text-base font-medium text-white mb-5.5">Send Message</h2>
-                        <form className="flex flex-col gap-4">
+                        <form onSubmit={(e)=>{handleForm(e)}} className="flex flex-col gap-4">
                             <div className="flex flex-col gap-2.5">
                                 <label className="text-xs text-zinc-400">Username</label>
                                 <input type="text" placeholder="Enter your username" className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 outline-none focus:border-neutral-600 transition-colors" />
@@ -44,7 +51,11 @@ const Register = () => {
                                 <label className="text-xs text-zinc-400">Password</label>
                                 <input type="password" placeholder="Enter your password" className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 outline-none focus:border-neutral-600 transition-colors" />
                             </div>
-                            <button type="submit" className="bg-green-600 hover:bg-green-700 text-white text-base py-3 rounded-lg transition-colors cursor-pointer mt-1">Login</button>
+                            <button type="submit" className="bg-green-600 hover:bg-green-700 text-white text-base py-3 rounded-lg transition-colors cursor-pointer mt-1">Sign up</button>
+ <p className="text-sm text-zinc-400">
+                                Already have an account? <Link to="/login" className="text-green-600 hover:text-green-700">Login</Link>
+                            </p>
+                            
                         </form>
                     </div>
                 </div>
