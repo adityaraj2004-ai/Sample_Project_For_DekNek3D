@@ -1,0 +1,3 @@
+This project is a fully functional Full Stack Web Application developed as part of the selection process for the Full Stack Developer Internship at DekNek 3D.
+
+The application demonstrates core full-stack development skills, including user authentication, backend API development, database integration, and deployment. It features a modern and responsive UI along with secure authentication mechanisms.

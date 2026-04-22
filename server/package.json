@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "This is an Backend for a sample project for DekNek",
+  "keywords": [
+    "Backend",
+    "Express"
+  ],
+  "license": "ISC",
+  "author": "Aditya Raj",
+  "type": "module",
+  "main": "Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
