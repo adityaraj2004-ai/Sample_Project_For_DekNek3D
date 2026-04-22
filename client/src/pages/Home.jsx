@@ -464,8 +464,8 @@ const Home = () => {
         <div className="content">
           {/* NAV */}
           <nav>
-            <span className="nav-logo">// Home Page</span>
-            <span className="nav-badge">Assignment · 2025</span>
+            <span className="nav-logo">// This is a namesake homepage developed for visual purpose only</span>
+            <span className="nav-badge">Assignment for DekSek</span>
           </nav>
 
           {/* HERO */}
