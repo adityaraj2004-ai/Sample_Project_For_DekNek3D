@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config()
 
 import express from "express";
-import { connectDB } from "./db/index.js";
+import { connectDB } from "./db/db.js";
 import mongoose from "mongoose";
 import app from "./App.js";
 

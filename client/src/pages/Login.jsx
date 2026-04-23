@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { loginUser } from '../utils/auth';
 
 const Login = () => {
     const navigate = useNavigate();
+    const [form, setForm] = useState({
+        email: "",
+        password: ""
+    })
+    const handleForm = async (e) => {
+        e.preventDefault();
 
-    const handleForm = (e) => {
-        e.preventDefault()
-        navigate('/home')
+        try {
+            await loginUser(form);   
+            navigate('/home');           
+        } catch (err) {
+            console.log(err.response?.data?.message);
+        }
     }
     return (
         <>
@@ -44,11 +54,17 @@ const Login = () => {
 
                             <div className="flex flex-col gap-2.5">
                                 <label className="text-xs text-zinc-400">Email</label>
-                                <input type="email" placeholder="Enter your email" className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 outline-none focus:border-neutral-600 transition-colors" />
+                                <input type="email" placeholder="Enter your email" className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 outline-none focus:border-neutral-600 transition-colors"
+                                value={form.email}
+                                onChange={(e)=>{setForm({...form, email: e.target.value})}}
+                                />
                             </div>
                             <div className="flex flex-col gap-2.5">
                                 <label className="text-xs text-zinc-400">Password</label>
-                                <input type="password" placeholder="Enter your password" className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 outline-none focus:border-neutral-600 transition-colors" />
+                                <input type="password" placeholder="Enter your password" className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-600 outline-none focus:border-neutral-600 transition-colors"
+                                value={form.password}
+                                onChange={(e)=>{setForm({...form, password: e.target.value})}}
+                                />
                             </div>
                             <button  type="submit" className="bg-green-600 hover:bg-green-700 text-white text-base py-3 rounded-lg transition-colors cursor-pointer mt-1">Login</button>
                             <p className="text-sm text-zinc-400">
