@@ -121,7 +121,7 @@ export const logOutUser = asyncHandler(async (req, res) => {
             }
         },
         {
-            new: true
+           returnDocument: "after"
         }
     )
 
